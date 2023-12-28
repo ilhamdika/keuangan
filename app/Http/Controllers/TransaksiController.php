@@ -32,11 +32,6 @@ class TransaksiController extends Controller
         ]);
 
         $kategori = Kategori::findOrFail($request->kategori_id);
-        // echo $kategori->nama;
-        // die();
-
-        // return $request;
-        // die();
         Transaksi::create([
             'jenis_id' => $request->jenis_id,
             'kategori_id' => $request->kategori_id,
