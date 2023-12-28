@@ -51,6 +51,14 @@
                 <td>{{ $trans->kategori->nama }}</td>
                 <td>{{ $trans->jenis->nama }}</td>
                 <td>{{ $trans->deskripsi }}</td>
+                <td>
+                    <a href="{{ route('transaksi.show', $trans->id) }}" class="btn btn-warning">Edit</a>
+                    <form action="{{ route('transaksi.destroy', $trans->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

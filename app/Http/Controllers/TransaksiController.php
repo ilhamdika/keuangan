@@ -57,4 +57,44 @@ class TransaksiController extends Controller
 
         return redirect()->route('transaksi.index');
     }
+
+    public function show($id)
+    {
+        $transaksi = Transaksi::findOrFail($id);
+        $kategori = Kategori::all();
+        $jenis = Jenis::all();
+        return view('pages.transaksi.edit', [
+            'transaksi' => $transaksi,
+            'kategori' => $kategori,
+            'jenis' => $jenis
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'jenis_id' => 'required',
+            'kategori_id' => 'required',
+            'deskripsi' => 'required',
+            'nominal' => 'required',
+        ]);
+
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->update([
+            'jenis_id' => $request->jenis_id,
+            'kategori_id' => $request->kategori_id,
+            'deskripsi' => $request->deskripsi,
+            'nominal' => $request->nominal,
+        ]);
+
+        return redirect()->route('transaksi.index');
+    }
+
+    public function destroy($id)
+    {
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->delete();
+
+        return redirect()->route('transaksi.index');
+    }
 }

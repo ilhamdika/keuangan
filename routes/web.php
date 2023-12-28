@@ -31,3 +31,6 @@ Route::delete('kategori/{id}', [KategoriController::class, 'destroy'])->name('ka
 
 Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
 Route::post('transaksi', [TransaksiController::class, 'store'])->name('transaksi.store');
+Route::get('transaksi/{id}', [TransaksiController::class, 'show'])->name('transaksi.show');
+Route::put('transaksi/{id}', [TransaksiController::class, 'update'])->name('transaksi.update');
+Route::delete('transaksi/{id}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');

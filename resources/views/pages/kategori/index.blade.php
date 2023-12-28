@@ -10,6 +10,8 @@
             <li>{{ $kategori->nama }}</li>
         @endforeach
     </ul> --}}
+
+    
     <table class="table">
         <thead>
           <tr>
@@ -37,6 +39,7 @@
       </table>
   
 
+      <h1>Add Kategori</h1>
     <form action="{{ route('kategori.store') }}" method="POST">
         @csrf
         <div class="form-group">

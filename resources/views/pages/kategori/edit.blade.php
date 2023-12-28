@@ -13,7 +13,7 @@
         <label for ="kategori_id">Jenis</label>
         <select name="kategori_id" id="kategori_id" class="form-control">
             @foreach ($kategori as $k)
-            <option value="{{$k->id}}">{{$k->nama}}</option>
+            <option value="{{$k->id}}" {{$k->id == $k->id ? 'selected' : ''}}>{{$k->nama}}</option>
             @endforeach
         </select>
     </div>
