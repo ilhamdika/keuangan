@@ -20,11 +20,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
 Route::get('kategori', [KategoriController::class, 'index'])->name('kategori.index');
 Route::post('kategori', [KategoriController::class, 'store'])->name('kategori.store');
 Route::get('kategori/{id}', [KategoriController::class, 'show'])->name('kategori.show');
 Route::put('kategori/{id}', [KategoriController::class, 'update'])->name('kategori.update');
 Route::delete('kategori/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
+
 Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
 Route::post('transaksi', [TransaksiController::class, 'store'])->name('transaksi.store');
