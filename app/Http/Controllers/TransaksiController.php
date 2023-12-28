@@ -87,6 +87,20 @@ class TransaksiController extends Controller
             'nominal' => $request->nominal,
         ]);
 
+        $saldo = Saldo::first();
+        $kategori = Kategori::findOrFail($request->kategori_id);
+        if ($kategori->nama == 'Pemasukan') {
+            $saldo->update([
+                'nominal' => $saldo->nominal - $transaksi->nominal + $request->nominal,
+                'total_pemasukan' => $saldo->total_pemasukan - $transaksi->nominal + $request->nominal
+            ]);
+        } else {
+            $saldo->update([
+                'nominal' => $saldo->nominal + $transaksi->nominal - $request->nominal,
+                'total_pengeluaran' => $saldo->total_pengeluaran - $transaksi->nominal + $request->nominal
+            ]);
+        }
+
         return redirect()->route('transaksi.index');
     }
 
