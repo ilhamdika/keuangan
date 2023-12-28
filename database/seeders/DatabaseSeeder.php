@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call(KategoriTableSeeder::class);
-        $this->call(JenisTableSeeder::class);
+        // $this->call(JenisTableSeeder::class);
+        $this->call(SaldoSeeder::class);
     }
 }
