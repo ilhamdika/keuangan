@@ -18,7 +18,7 @@
 	<section id="sidebar">
 		<a href="#" class="brand">
 			<i class='bx bxs-smile'></i>
-			<span class="text">Catatan Keuangan</span>
+			<span class="text">Keuangan</span>
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
